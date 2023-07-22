@@ -1,0 +1,8 @@
+internships = []
+for item in response.xpath('//ul')[2].xpath('li'):
+    internships.append(item.xpath('a/@href').extract())
+
+import csv
+with open('internships.csv','w+',newline='') as f:
+    write = csv.writer(f)
+    write.writerows(internships)
